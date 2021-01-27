@@ -16,3 +16,16 @@ ansible_nas_timezone: Etc/UTC
 heimdall_enabled: true
 portainer_enabled: true
 glances_enabled: true
+# Will be added to the docker group to give user command line access to docker
+ansible_nas_user: monty
+
+# Your email and domain, used for Let's Encrypt SSL certs
+ansible_nas_email: monty@codetransform.com
+
+# Where you want Docker to store its container data.
+docker_home: /mnt/Volume2/docker
+
+# Backup & Restore
+timemachine_enabled: true
+timemachine_password: timemachine
+timemachine_share_name: Backup
