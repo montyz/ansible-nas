@@ -29,3 +29,7 @@ docker_home: /mnt/Volume2/docker
 timemachine_enabled: true
 timemachine_password: timemachine
 timemachine_share_name: Backup
+
+# samba options
+samba_apple_extensions: true
+samba_global_include: samba-global-include.conf
