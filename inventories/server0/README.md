@@ -71,12 +71,13 @@ sudo mkfs.xfs -f /dev/sde1
 
 ```bash
 sudo mkdir /mnt/disk{1,2,3}
-sudo mkdir /mnt/storage # this will be the main mergerfs mountpoint
+# sudo mkdir /mnt/storage # this will be the main mergerfs mountpoint
 ```
 
+- actually mergerfs being a fuse filesystem makes nfs and docker not work, so don't bother with it
 - copy/paste `templates/fstab` to end of `/etc/fstab`
 - run `sudo mount -a` to check the `fstab`
-- because nfs is running on top of a fuse filesystem, I had to add `rw,sync,crossmnt,fsid=0` as the options to /etc/exports
+- [ignore] because nfs is running on top of a fuse filesystem, I had to add `rw,sync,crossmnt,fsid=0` as the options to /etc/exports
 
 ## todo
 
