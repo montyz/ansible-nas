@@ -9,7 +9,7 @@
 # Add your all.yml config overrides to this file. See group_vars/all.yml for all possible settings.
 
 # Example options
-ansible_nas_hostname: ansible-nas
+ansible_nas_hostname: server0
 ansible_nas_timezone: Etc/UTC
 
 ## Enable some applications
@@ -23,7 +23,7 @@ ansible_nas_user: monty
 ansible_nas_email: monty@codetransform.com
 
 # Where you want Docker to store its container data.
-docker_home: /mnt/Volume2/docker
+docker_home: /mnt/storage/docker
 
 # Backup & Restore
 timemachine_enabled: true
@@ -31,5 +31,11 @@ timemachine_password: timemachine
 timemachine_share_name: Backup
 
 # samba options
+samba_shares_root: /mnt/storage/resilio/sync
 samba_apple_extensions: true
 samba_global_include: samba-global-include.conf
+
+# nfs options
+nfs_shares_root: /mnt/storage/nfs
+nfs_exports:
+  - "{{ nfs_shares_root }}/public *(rw,sync,crossmnt,fsid=0)"
