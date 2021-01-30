@@ -39,3 +39,7 @@ samba_global_include: samba-global-include.conf
 nfs_shares_root: /mnt/disk2/nfs
 nfs_exports:
   - "{{ nfs_shares_root }}/public *(rw,sync,no_root_squash)"
+
+# plex
+plex_enabled: true
+plex_hostname: "server0"
