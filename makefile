@@ -7,6 +7,12 @@ samba:
 plex:
 	ansible-playbook -t plex -i inventories/server0/inventory nas.yml -b
 
+youtubedlmaterial:
+	ansible-playbook -t youtubedlmaterial -i inventories/server0/inventory nas.yml -b
+
+virtual_desktop:
+	ansible-playbook -t virtual_desktop -i inventories/server0/inventory nas.yml -b
+
 reqs:
 	ansible-galaxy install -r requirements.yml
 

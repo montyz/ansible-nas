@@ -84,6 +84,9 @@ sudo mkdir /mnt/disk{1,2,3}
 - √ set up volumes with mergerfs
 - resilio container
 - minidlna
-- plex
-- get samba working (weird it's running two sets of smbd's, see what happens on restart)
+- √ plex
+- ~ √ get samba working (weird it's running two sets of smbd's, see what happens on restart)
 - figure out how to download via usenet
+- √ dev env
+- √ youtube-dl 
+- set up shortcuts with heimdall

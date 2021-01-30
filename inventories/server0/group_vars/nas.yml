@@ -43,3 +43,6 @@ nfs_exports:
 # plex
 plex_enabled: true
 plex_hostname: "server0"
+
+youtubedlmaterial_enabled: true
+virtual_desktop_enabled: true
