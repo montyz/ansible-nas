@@ -13,6 +13,12 @@ youtubedlmaterial:
 virtual_desktop:
 	ansible-playbook -t virtual_desktop -i inventories/server0/inventory nas.yml -b
 
+guacamole:
+	ansible-playbook -t guacamole -i inventories/server0/inventory nas.yml -b
+
+resilio:
+	ansible-playbook -t resilio -i inventories/server0/inventory nas.yml -b
+
 reqs:
 	ansible-galaxy install -r requirements.yml
 

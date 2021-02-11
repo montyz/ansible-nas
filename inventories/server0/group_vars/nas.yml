@@ -45,4 +45,13 @@ plex_enabled: true
 plex_hostname: "server0"
 
 youtubedlmaterial_enabled: true
+youtubedlmaterial_dl_audio_directory: "{{ plex_tv_directory }}/youtube/audio"
+youtubedlmaterial_dl_video_directory: "{{ plex_tv_directory }}/youtube/video"
+youtubedlmaterial_dl_subscriptions_directory: "{{ plex_tv_directory }}/youtube/subscriptions"
+
 virtual_desktop_enabled: true
+guacamole_enabled: true
+
+resilio_enabled: true
+resilio_data_directory: /mnt/disk3/resilio/
+

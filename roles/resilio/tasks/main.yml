@@ -1,0 +1,36 @@
+---
+- name: Create resilio Directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ resilio_data_directory }}"
+    - "{{ resilio_downloads_directory }}"
+    - "{{ resilio_config_directory }}"
+
+- name: resilio Docker Container
+  docker_container:
+    name: resilio
+    image: linuxserver/resilio-sync
+    pull: true
+    volumes:
+      - "{{ resilio_data_directory }}:/sync:rw"
+      - "{{ resilio_downloads_directory }}:/downloads:rw"
+      - "{{ resilio_config_directory }}:/config:rw"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+    env:
+      TZ: "{{ ansible_nas_timezone }}"
+      PGID: "{{ resilio_group_id }}"
+      PUID: "{{ resilio_user_id }}"
+    ports:
+      - "{{ resilio_port }}:8888"
+    restart_policy: unless-stopped
+    memory: 1g
+    labels:
+      traefik.enable: "{{ resilio_available_externally }}"
+      traefik.http.routers.resilio.rule: "Host(`{{ resilio_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.resilio.tls.certresolver: "letsencrypt"
+      traefik.http.routers.resilio.tls.domains[0].main: "{{ ansible_nas_domain }}"
+      traefik.http.routers.resilio.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.services.resilio.loadbalancer.server.port: "8888"

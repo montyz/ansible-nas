@@ -133,10 +133,10 @@
         - radarr
       when: (radarr_enabled | default(False))
 
-    - role: radarr
+    - role: resilio
       tags:
-        - radarr
-      when: (radarr_enabled | default(False))
+        - resilio
+      when: (resilio_enabled | default(False))
 
     - role: sickchill
       tags:

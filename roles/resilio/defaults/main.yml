@@ -1,0 +1,15 @@
+---
+resilio_enabled: false
+resilio_available_externally: "false"
+
+# directories
+resilio_data_directory: "{{ samba_shares_root }}/resilio"
+resilio_downloads_directory: "{{ docker_home }}/resilio/downloads"
+resilio_config_directory: "{{ docker_home }}/resilio/config"
+
+# network
+resilio_port: "8888"
+resilio_hostname: "resilio"
+
+resilio_group_id: "0"
+resilio_user_id: "0"
