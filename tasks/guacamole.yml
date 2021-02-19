@@ -30,6 +30,7 @@
 
 - name: Guacamole Container
   docker_container:
+    state: absent
     name: guacamole
     image: "oznu/guacamole"
     pull: true

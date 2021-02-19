@@ -13,8 +13,11 @@ youtubedlmaterial:
 virtual_desktop:
 	ansible-playbook -t virtual_desktop -i inventories/server0/inventory nas.yml -b
 
-guacamole:
-	ansible-playbook -t guacamole -i inventories/server0/inventory nas.yml -b
+minidlna:
+	ansible-playbook -t minidlna -i inventories/server0/inventory nas.yml -b
+
+glances:
+	ansible-playbook -t glances -i inventories/server0/inventory nas.yml -b
 
 resilio:
 	ansible-playbook -t resilio -i inventories/server0/inventory nas.yml -b
