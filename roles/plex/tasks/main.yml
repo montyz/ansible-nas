@@ -28,6 +28,8 @@
       PUID: "{{ plex_user_id }}"
       PGID: "{{ plex_group_id }}"
       VERSION: "{{ plex_version }}"
+      DOCKER_MODS: "linuxserver/mods:universal-package-install"
+      INSTALL_PACKAGES: "rsync|openssh-server"
     restart_policy: unless-stopped
     memory: "{{ plex_memory }}"
     labels:

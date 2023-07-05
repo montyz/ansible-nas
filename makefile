@@ -4,6 +4,9 @@ all:
 samba:
 	ansible-playbook -t samba -i inventories/server0/inventory nas.yml -b
 
+timemachine:
+	ansible-playbook -t timemachine -i inventories/server0/inventory nas.yml -b
+
 plex:
 	ansible-playbook -t plex -i inventories/server0/inventory nas.yml -b
 

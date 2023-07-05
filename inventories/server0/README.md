@@ -90,3 +90,10 @@ sudo mkdir /mnt/disk{1,2,3}
 - √ dev env
 - √ youtube-dl 
 - set up shortcuts with heimdall
+
+# next steps:
+
+- reinstall with latest from github
+- only install timemachine and plex and youtube-dl 
+- copy hello_world and turn it into an install of linuxserver.io openssh plus rsync
+- enable wake-on-lan https://wiki.debian.org/WakeOnLan
