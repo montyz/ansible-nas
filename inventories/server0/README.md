@@ -93,7 +93,76 @@ sudo mkdir /mnt/disk{1,2,3}
 
 # next steps:
 
-- reinstall with latest from github
+- reinstall with latest from github, just copy over my inventory and makefile
+- or maybe branch my work and use github to pull in latest from upstream https://github.com/davestephens/ansible-nas/compare/master...montyz:ansible-nas:master
 - only install timemachine and plex and youtube-dl 
 - copy hello_world and turn it into an install of linuxserver.io openssh plus rsync
 - enable wake-on-lan https://wiki.debian.org/WakeOnLan
+
+--- my commits:
+(base) monty@Montys-MacBook-Pro ansible-nas % git log
+commit b772430fa93649a225c40e2b01dff1c98b5df196 (HEAD -> master, origin/master, origin/HEAD)
+Author: montyz <monty@codetransform.com>
+Date:   Tue Jul 4 17:00:59 2023 -0700
+
+    updates
+
+commit 5ede3699b7a0a9cd8f12bc2996ad870bef4f45db
+Author: montyz <monty@codetransform.com>
+Date:   Thu Feb 18 20:14:02 2021 -0800
+
+    minidlna
+
+commit c033a2b2228c01bce2bb832ca4dd751366913e6a
+Author: montyz <monty@codetransform.com>
+Date:   Thu Feb 11 08:50:25 2021 -0800
+
+    resilio sync added
+
+commit 22b214e3a6a648ed2d07b786cd2ee86f062fa27e
+Author: montyz <monty@codetransform.com>
+Date:   Fri Jan 29 19:21:20 2021 -0800
+
+    a couple more
+
+commit ee1a3d31f144c112c578ca55d57d5254b19ad725
+Author: montyz <monty@codetransform.com>
+Date:   Fri Jan 29 19:01:07 2021 -0800
+
+    got plex working
+
+commit 73897cea4a12930b67f7997d1571800065f06328
+Author: montyz <monty@codetransform.com>
+Date:   Wed Jan 27 22:18:23 2021 -0800
+
+    mergerfs not playing well with nfs or docker, so ignoring it
+
+commit f9f265f026f3a080905f061c02fbd74863196546
+Author: montyz <monty@codetransform.com>
+Date:   Wed Jan 27 21:53:06 2021 -0800
+
+    progress
+
+commit d3792f68d9e5a1b9e3f7c85a4761912face2ca2d
+Author: montyz <monty@codetransform.com>
+Date:   Tue Jan 26 20:18:43 2021 -0800
+
+    samba
+
+commit 3a9e090aaa4f9b51c243ebd93cccf1be3b4ce75f
+Author: montyz <monty@codetransform.com>
+Date:   Tue Jan 26 20:18:23 2021 -0800
+
+    trying to get samba to work with mac
+
+commit f1e50fe6663a4d62bf27ec45e96930ab4c019bea
+Author: montyz <monty@codetransform.com>
+Date:   Tue Jan 26 19:25:14 2021 -0800
+
+    added time machine
+
+commit 24615397f9b0a6790d76a8543c9375ff23ebd955
+Author: montyz <monty@codetransform.com>
+Date:   Tue Jan 26 18:57:49 2021 -0800
+
+    server0 initial setup

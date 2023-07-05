@@ -1,6 +1,6 @@
 [entryPoints]
   [entryPoints.web]
-    address = ":80"
+    address = ":{{ traefik_port_http }}"
 
   [entryPoints.web.http.redirections.entryPoint]
     to = "websecure"
@@ -44,3 +44,6 @@
 
       [certificatesResolvers.letsencrypt.acme.dnsChallenge]
         provider = "{{ traefik_dns_provider }}"
+
+[metrics]
+  [metrics.prometheus]

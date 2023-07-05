@@ -1,6 +1,6 @@
 ---
 couchpotato_enabled: false
-couchpotato_available_externally: "false"
+couchpotato_available_externally: false
 
 # directories
 couchpotato_config_directory: "{{ docker_home }}/couchpotato/config"
@@ -14,3 +14,9 @@ couchpotato_group_id: "0"
 
 # network
 couchpotato_port: "5050"
+
+# specs
+couchpotato_memory: 1g
+
+# docker
+couchpotato_container_name: couchpotato

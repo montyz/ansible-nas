@@ -1,6 +1,6 @@
 ---
 lidarr_enabled: false
-lidarr_available_externally: "false"
+lidarr_available_externally: false
 
 # directories
 lidarr_data_directory: "{{ docker_home }}/lidarr/config"
@@ -14,3 +14,11 @@ lidarr_group_id: "0"
 # network
 lidarr_port: "8686"
 lidarr_hostname: "lidarr"
+
+# docker
+lidarr_container_name: "lidarr"
+lidarr_image_name: "linuxserver/lidarr"
+lidarr_image_version: "latest"
+
+# specs
+lidarr_memory: 1g
