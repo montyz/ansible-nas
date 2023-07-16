@@ -1,0 +1,19 @@
+---
+openssh_enabled: false
+openssh_available_externally: false
+
+# directories
+openssh_data_directory: "{{ docker_home }}/openssh"
+
+# network
+openssh_port: "2222"
+openssh_hostname: "openssh"
+
+# specs
+openssh_memory: 1g
+
+# docker
+openssh_container_name: "openssh"
+openssh_docker_mods: "linuxserver/mods:universal-package-install"
+openssh_install_packages: "rsync"
+openssh_public_key: ""

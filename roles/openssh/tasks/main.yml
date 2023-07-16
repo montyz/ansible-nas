@@ -1,0 +1,37 @@
+---
+- name: Start OpenSSH
+  block:
+    - name: Create OpenSSH Directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - "{{ openssh_data_directory }}"
+
+    - name: OpenSSH Docker Container
+      community.docker.docker_container:
+        name: "{{ openssh_container_name }}"
+        image: lscr.io/linuxserver/openssh-server:latest
+        pull: true
+        volumes:
+          - "{{ openssh_data_directory }}:/openssh:rw"
+        ports:
+          - "{{ openssh_port }}:2222"
+        env:
+          DOCKER_MODS: "{{ openssh_docker_mods }}"
+          INSTALL_PACKAGES: "{{ openssh_install_packages }}"
+          PUBLIC_KEY: "{{ openssh_public_key }}"
+          USER_NAME: monty
+          PUID: "1000"
+          PGID: "1000"
+        restart_policy: unless-stopped
+        memory: "{{ openssh_memory }}"
+  when: openssh_enabled is true
+
+- name: Stop OpenSSH
+  block:
+    - name: Stop OpenSSH
+      community.docker.docker_container:
+        name: "{{ openssh_container_name }}"
+        state: absent
+  when: openssh_enabled is false
