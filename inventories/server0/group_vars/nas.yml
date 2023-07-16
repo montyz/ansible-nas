@@ -15,7 +15,7 @@ ansible_nas_timezone: Etc/UTC
 ## Enable some applications
 heimdall_enabled: true
 portainer_enabled: true
-glances_enabled: true
+glances_enabled: false
 # Will be added to the docker group to give user command line access to docker
 ansible_nas_user: monty
 
@@ -49,15 +49,20 @@ youtubedlmaterial_dl_audio_directory: "{{ plex_tv_directory }}/youtube/audio"
 youtubedlmaterial_dl_video_directory: "{{ plex_tv_directory }}/youtube/video"
 youtubedlmaterial_dl_subscriptions_directory: "{{ plex_tv_directory }}/youtube/subscriptions"
 
-virtual_desktop_enabled: true
+virtual_desktop_enabled: false
 guacamole_enabled: false
 
 resilio_enabled: true
-resilio_data_directory: /mnt/disk3/resilio/
+resilio_data_directory: /mnt/disk3/resilio/sync
+
+## openssh
+openssh_enabled: true
+openssh_data_directory: "/mnt/disk3/"
+openssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKAEof1VUD1hzvK6u6SC3/oKFqMyGKCVSiA1SXnx8RQn monty@potteryphotos.local"
 
 ###
 ### MiniDLNA
 ###
-minidlna_enabled: true
+minidlna_enabled: false
 minidlna_port: "8200"
 

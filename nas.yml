@@ -265,6 +265,10 @@
       tags:
         - openhab
 
+    - role: openssh
+      tags:
+        - openssh
+
     - role: organizr
       tags:
         - organizr
