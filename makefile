@@ -7,6 +7,9 @@ samba:
 timemachine:
 	ansible-playbook -t timemachine -i inventories/server0/inventory nas.yml -b
 
+jellyfin:
+	ansible-playbook -t jellyfin -i inventories/server0/inventory nas.yml -b
+	
 plex:
 	ansible-playbook -t plex -i inventories/server0/inventory nas.yml -b
 
