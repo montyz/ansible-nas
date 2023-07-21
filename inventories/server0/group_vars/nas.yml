@@ -14,6 +14,8 @@ ansible_nas_timezone: Etc/UTC
 
 ## Enable some applications
 heimdall_enabled: true
+heimdall_port_http: "80"
+
 portainer_enabled: true
 glances_enabled: false
 # Will be added to the docker group to give user command line access to docker
@@ -49,8 +51,8 @@ youtubedlmaterial_dl_audio_directory: "{{ plex_tv_directory }}/youtube/audio"
 youtubedlmaterial_dl_video_directory: "{{ plex_tv_directory }}/youtube/video"
 youtubedlmaterial_dl_subscriptions_directory: "{{ plex_tv_directory }}/youtube/subscriptions"
 
-virtual_desktop_enabled: false
-guacamole_enabled: false
+virtual_desktop_enabled: true
+guacamole_enabled: true
 
 resilio_enabled: true
 resilio_data_directory: /mnt/disk3/resilio/sync
