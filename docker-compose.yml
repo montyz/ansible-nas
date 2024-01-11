@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  ansible:
+    # user: "${UID}:${GID}"
+    image: ansible:latest
+    secrets:
+      - user_ssh_key
+    volumes:
+      - .:/work
+      - ./.ansible/roles:/root/.ansible/roles
+
+secrets:
+  user_ssh_key:
+    file: ~/.ssh/id_ed25519
+
