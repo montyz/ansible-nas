@@ -1,3 +1,6 @@
+# docker run -v "${PWD}":/work:ro -v ~/.ssh:/root/.ssh:ro --rm ansible:latest ansible-playbook -i /work/inventories/server0/inventory nas.yml -b
+
+
 all:
 	ansible-playbook -i inventories/server0/inventory nas.yml -b
 
