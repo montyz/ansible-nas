@@ -1,6 +1,7 @@
 tests/test.yml
 site
 .vagrant
+.ansible
 *.retry
 *.log
 # inventories

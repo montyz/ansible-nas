@@ -9,6 +9,10 @@ RUN pipx ensurepath && \
 
 RUN apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    sshpass
+    sshpass \
+    openssh-client
 
+RUN mkdir -p /root/.ssh &&ln -s /run/secrets/user_ssh_key /root/.ssh/id_ed25519
+RUN chown -R root:root /root/.ssh
+RUN echo "Host *.local\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 WORKDIR /work
