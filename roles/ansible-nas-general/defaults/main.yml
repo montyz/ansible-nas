@@ -3,7 +3,7 @@
 ansible_nas_hostname: ansible-nas
 
 # Update all apt packages when playbook is run
-keep_packages_updated: false
+keep_packages_updated: true
 
 # Extra packages to install
 ansible_nas_extra_packages:
