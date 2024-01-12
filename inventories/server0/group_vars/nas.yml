@@ -29,6 +29,7 @@ docker_home: /mnt/disk1/docker
 
 # Backup & Restore
 timemachine_enabled: true
+# user is 'timemachine'
 timemachine_password: timemachine
 timemachine_share_name: Backup
 
