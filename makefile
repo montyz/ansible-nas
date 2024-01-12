@@ -1,39 +1,40 @@
-# docker run -v "${PWD}":/work:ro -v ~/.ssh:/root/.ssh:ro --rm ansible:latest ansible-playbook -i /work/inventories/server0/inventory nas.yml -b
-
-
+# pre-requisites-> make reqs 
+# docker-compose run ansible ansible-playbook --user monty -i /work/inventories/server0/inventory nas.yml -b
+# shell for debugging-> docker-compose run ansible bash 
+# ssh key sharing via https://medium.com/trabe/use-your-local-ssh-keys-inside-a-docker-container-ea1d117515dc
 all:
-	ansible-playbook -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -i inventories/server0/inventory nas.yml -b
 
 samba:
-	ansible-playbook -t samba -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t samba -i inventories/server0/inventory nas.yml -b
 
 timemachine:
-	ansible-playbook -t timemachine -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t timemachine -i inventories/server0/inventory nas.yml -b
 
 jellyfin:
-	ansible-playbook -t jellyfin -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t jellyfin -i inventories/server0/inventory nas.yml -b
 	
 plex:
-	ansible-playbook -t plex -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t plex -i inventories/server0/inventory nas.yml -b
 
 youtubedlmaterial:
-	ansible-playbook -t youtubedlmaterial -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t youtubedlmaterial -i inventories/server0/inventory nas.yml -b
 
 portainer:
-	ansible-playbook -t portainer -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t portainer -i inventories/server0/inventory nas.yml -b
 
 minidlna:
-	ansible-playbook -t minidlna -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t minidlna -i inventories/server0/inventory nas.yml -b
 
 glances:
-	ansible-playbook -t glances -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t glances -i inventories/server0/inventory nas.yml -b
 
 resilio:
-	ansible-playbook -t resilio -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t resilio -i inventories/server0/inventory nas.yml -b
 
 openssh:
-	ansible-playbook -t openssh -i inventories/server0/inventory nas.yml -b
+	docker-compose run ansible ansible-playbook --user monty -t openssh -i inventories/server0/inventory nas.yml -b
 
 reqs:
-	ansible-galaxy install -r requirements.yml
+	docker-compose run ansible ansible-galaxy install -r requirements.yml
 
