@@ -42,7 +42,7 @@ samba_apple_extensions: true
 samba_global_include: samba-global-include.conf
 
 # nfs options
-nfs_shares_root: /mnt/disk2/nfs
+nfs_shares_root: /mnt/disk3/nfs
 nfs_exports:
   - "{{ nfs_shares_root }}/public *(rw,sync,no_root_squash)"
 
