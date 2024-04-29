@@ -78,6 +78,10 @@
       tags:
         - calibre
 
+    - role: calibreweb
+      tags:
+        - calibreweb
+
     - role: cloudcmd
       tags:
         - cloudcmd
@@ -182,6 +186,10 @@
       tags:
         - homebridge
 
+    - role: homepage
+      tags:
+        - homepage
+
     - role: jackett
       tags:
         - jackett
@@ -213,6 +221,10 @@
     - role: mealie
       tags:
         - mealie
+
+    - role: minecraft-bedrock-server
+      tags:
+        - minecraft-bedrock-server
 
     - role: minecraft-server
       tags:
@@ -334,6 +346,10 @@
       tags:
         - radarr
 
+    - role: romm
+      tags:
+        - romm
+
     - role: route53_ddns
       tags:
         - route53_ddns
@@ -349,6 +365,10 @@
     - role: sickchill
       tags:
         - sickchill
+
+    - role: silverbullet
+      tags:
+        - silverbullet
 
     - role: sonarr
       tags:
