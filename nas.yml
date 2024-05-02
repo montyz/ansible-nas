@@ -346,6 +346,10 @@
       tags:
         - radarr
 
+    - role: resilio
+      tags:
+        - resilio
+
     - role: romm
       tags:
         - romm

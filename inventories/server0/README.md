@@ -99,7 +99,10 @@ sudo mkdir /mnt/disk{1,2,3}
 - copy hello_world and turn it into an install of linuxserver.io openssh plus rsync
 - enable wake-on-lan https://wiki.debian.org/WakeOnLan
 
---- my commits:
+# troubleshooting
+At one point resilio wouldn't happen, even with `make resilio`. It turned out that the resilio role was missing from nas.yaml--probably from me merging the latest codebase.
+
+# my commits:
 (base) monty@Montys-MacBook-Pro ansible-nas % git log
 commit b772430fa93649a225c40e2b01dff1c98b5df196 (HEAD -> master, origin/master, origin/HEAD)
 Author: montyz <monty@codetransform.com>
