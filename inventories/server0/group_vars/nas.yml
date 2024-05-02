@@ -81,3 +81,5 @@ jellyfin_audiobooks_directory: "{{ samba_shares_root }}/jellyfin/audiobooks"
 minidlna_enabled: false
 minidlna_port: "8200"
 
+### SilverBullet
+silverbullet_enabled: true

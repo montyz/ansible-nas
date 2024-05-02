@@ -15,5 +15,5 @@ openssh_memory: 1g
 # docker
 openssh_container_name: "openssh"
 openssh_docker_mods: "linuxserver/mods:universal-package-install"
-openssh_install_packages: "rsync"
+openssh_install_packages: "rsync git"
 openssh_public_key: ""

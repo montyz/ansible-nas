@@ -35,6 +35,9 @@ resilio:
 openssh:
 	docker-compose run ansible ansible-playbook --user monty -t openssh -i inventories/server0/inventory nas.yml -b
 
+silverbullet:
+	docker-compose run ansible ansible-playbook --user monty -t silverbullet -i inventories/server0/inventory nas.yml -b
+
 reqs:
 	docker-compose run ansible ansible-galaxy install -r requirements.yml
 
