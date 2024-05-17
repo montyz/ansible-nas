@@ -7,6 +7,7 @@
         state: directory
       with_items:
         - "{{ jellyfin_config_directory }}"
+        - "{{ jellyfin_tailscale_directory }}"
 
     - name: Jellyfin Docker Container
       community.docker.docker_container:
@@ -21,6 +22,7 @@
           - "{{ jellyfin_tv_directory }}:/tv:{{ jellyfin_tv_permissions }}"
           - "{{ jellyfin_books_directory }}:/books:{{ jellyfin_books_permissions }}"
           - "{{ jellyfin_audiobooks_directory }}:/audiobooks:{{ jellyfin_audiobooks_permissions }}"
+          - "{{ jellyfin_tailscale_directory }}:/var/lib/tailscale:rw"
         ports:
           - "{{ jellyfin_port_http }}:8096"
         env:
@@ -35,7 +37,7 @@
           TAILSCALE_SERVE_MODE: https
           TAILSCALE_SERVE_PORT: "8096"
           TAILSCALE_USE_SSH: "1"
-          TAILSCALE_HOSTNAME: jellyfin
+          TAILSCALE_HOSTNAME: testjelly
 
           ## uncomment to enable funnel
           ## remember that if you do, it's exposed to the internet, so be careful!
