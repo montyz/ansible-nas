@@ -27,6 +27,23 @@
           TZ: "{{ ansible_nas_timezone }}"
           PUID: "{{ jellyfin_user_id }}"
           PGID: "{{ jellyfin_group_id }}"
+          DOCKER_MODS: ghcr.io/tailscale-dev/docker-mod:main
+          # tailscale configuration
+
+          # make sure this is persisted in a volume
+          TAILSCALE_STATE_DIR: /var/lib/tailscale
+          TAILSCALE_SERVE_MODE: https
+          TAILSCALE_SERVE_PORT: "80"
+          TAILSCALE_USE_SSH: "1"
+          TAILSCALE_HOSTNAME: jellyfin
+
+          ## uncomment to enable funnel
+          ## remember that if you do, it's exposed to the internet, so be careful!
+          TAILSCALE_FUNNEL: "on"
+
+          # replace this with your authkey from the admin panel (use ansible vault)
+          TAILSCALE_AUTHKEY: "{{ tailscale_auth_key }}"
+
         restart_policy: unless-stopped
         memory: "{{ jellyfin_memory }}"
         labels:
