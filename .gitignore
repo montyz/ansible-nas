@@ -4,6 +4,7 @@ site
 .ansible
 *.retry
 *.log
+.ssh
 # inventories
 .cache
 roles/bertvv.samba

@@ -37,7 +37,7 @@
           TAILSCALE_SERVE_MODE: https
           TAILSCALE_SERVE_PORT: "8096"
           TAILSCALE_USE_SSH: "1"
-          TAILSCALE_HOSTNAME: testjelly
+          TAILSCALE_HOSTNAME: taiko
 
           ## uncomment to enable funnel
           ## remember that if you do, it's exposed to the internet, so be careful!
