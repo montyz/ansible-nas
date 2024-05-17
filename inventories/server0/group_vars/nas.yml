@@ -67,7 +67,7 @@ openssh_data_directory: "/mnt/disk3/"
 openssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKAEof1VUD1hzvK6u6SC3/oKFqMyGKCVSiA1SXnx8RQn monty@potteryphotos.local"
 
 ## jellyfin
-jellyfin_enabled: false
+jellyfin_enabled: true
 jellyfin_movies_directory: "{{ samba_shares_root }}/jellyfin/movies"
 jellyfin_music_directory: "{{ samba_shares_root }}/jellyfin/music"
 jellyfin_photos_directory: "{{ samba_shares_root }}/jellyfin/photos"
