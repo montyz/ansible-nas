@@ -5,6 +5,7 @@ jellyfin_available_externally: false
 
 # directories
 jellyfin_config_directory: "{{ docker_home }}/jellyfin/config"
+jellyfin_tailscale_directory: "{{ docker_home }}/jellyfin/tailscale"
 jellyfin_movies_directory: "{{ movies_root }}"
 jellyfin_music_directory: "{{ music_root }}"
 jellyfin_photos_directory: "{{ photos_root }}"

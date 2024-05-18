@@ -8,6 +8,7 @@ services:
     volumes:
       - .:/work
       - ./.ansible/roles:/root/.ansible/roles
+      - ./.ssh:/root/.ssh
     extra_hosts:
       - "server0.local:192.168.98.189"
 secrets:
