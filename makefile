@@ -1,43 +1,54 @@
+# install ansible with nix home manager, easier than the docker way
 # pre-requisites-> make reqs 
-# docker-compose run ansible ansible-playbook --user monty -i /work/inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
-# shell for debugging-> docker-compose run ansible bash 
+# ansible-playbook --user monty -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+# shell for debugging-> bash 
 # ssh key sharing via https://medium.com/trabe/use-your-local-ssh-keys-inside-a-docker-container-ea1d117515dc
+# use ansible-vault with inventories/server0/secrets_file.enc for secrets
 all:
-	docker-compose run ansible ansible-playbook --user monty -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 samba:
-	docker-compose run ansible ansible-playbook --user monty -t samba -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t samba -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 timemachine:
-	docker-compose run ansible ansible-playbook --user monty -t timemachine -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t timemachine -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 jellyfin:
-	docker-compose run ansible ansible-playbook --user monty -t jellyfin -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t jellyfin -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 	
 plex:
-	docker-compose run ansible ansible-playbook --user monty -t plex -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t plex -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 youtubedlmaterial:
-	docker-compose run ansible ansible-playbook --user monty -t youtubedlmaterial -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t youtubedlmaterial -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 portainer:
-	docker-compose run ansible ansible-playbook --user monty -t portainer -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t portainer -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 minidlna:
-	docker-compose run ansible ansible-playbook --user monty -t minidlna -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t minidlna -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 glances:
-	docker-compose run ansible ansible-playbook --user monty -t glances -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t glances -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 resilio:
-	docker-compose run ansible ansible-playbook --user monty -t resilio -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t resilio -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 openssh:
-	docker-compose run ansible ansible-playbook --user monty -t openssh -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
+	ansible-playbook --user monty -t openssh -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml -b
 
 silverbullet:
-	docker-compose run ansible ansible-playbook --user monty -t silver bullet -i inventories/server0/inventory nas.yml -b
+	ansible-playbook --user monty -t silverbullet -i inventories/server0/inventory nas.yml -b
+
+audioserve:
+	ansible-playbook --user monty -t audioserve -i inventories/server0/inventory -e @inventories/server0/secrets_file.enc --ask-vault-pass nas.yml nas.yml -b
+
 
 reqs:
-	docker-compose run ansible ansible-galaxy install -r requirements.yml
+	ansible-galaxy install -r requirements.yml
 
+decrypt_secrets:
+	ansible-vault decrypt inventories/server0/secrets_file.enc
+
+encrypt_secrets:
+	ansible-vault encrypt inventories/server0/secrets_file.enc

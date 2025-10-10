@@ -1,13 +1,12 @@
-version: '3.3'
 services:
   ansible:
     # user: "${UID}:${GID}"
-    image: ansible:latest
+    image: alpine/ansible:latest
     secrets:
       - user_ssh_key
     volumes:
       - .:/work
-      - ./.ansible/roles:/root/.ansible/roles
+      - ./.ansible:/root/.ansible
       - ./.ssh:/root/.ssh
     extra_hosts:
       - "server0.local:192.168.98.189"

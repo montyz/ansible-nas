@@ -49,6 +49,9 @@ nfs_exports:
 # plex
 plex_enabled: true
 plex_hostname: "server0"
+plex_user_id: "0"
+plex_group_id: "0"
+
 
 youtubedlmaterial_enabled: true
 youtubedlmaterial_dl_audio_directory: "{{ plex_tv_directory }}/youtube/audio"
@@ -67,7 +70,7 @@ openssh_data_directory: "/mnt/disk3/"
 openssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKAEof1VUD1hzvK6u6SC3/oKFqMyGKCVSiA1SXnx8RQn monty@potteryphotos.local"
 
 ## jellyfin
-jellyfin_enabled: true
+jellyfin_enabled: false
 jellyfin_movies_directory: "{{ samba_shares_root }}/jellyfin/movies"
 jellyfin_music_directory: "{{ samba_shares_root }}/jellyfin/music"
 jellyfin_photos_directory: "{{ samba_shares_root }}/jellyfin/photos"
@@ -83,3 +86,13 @@ minidlna_port: "8200"
 
 ### SilverBullet
 silverbullet_enabled: true
+
+### Audioserve
+audioserve_enabled: true
+audioserve_available_externally: false
+
+# directories
+audioserve_audiobooks_directory: "{{ samba_shares_root }}/jellyfin/music"
+
+# network
+audioserve_port: "3333"

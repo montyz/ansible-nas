@@ -1,0 +1,17 @@
+---
+audioserve_enabled: false
+audioserve_available_externally: false
+
+# directories
+audioserve_data_directory: "{{ docker_home }}/audioserve"
+audioserve_audiobooks_directory: "{{ docker_home }}/audiobooks"
+
+# network
+audioserve_port: "3000"
+audioserve_hostname: "audioserve"
+
+# specs
+audioserve_memory: 1g
+
+# docker
+audioserve_container_name: audioserve

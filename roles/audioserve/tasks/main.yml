@@ -1,0 +1,45 @@
+---
+- name: Start Audioserve
+  block:
+    - name: Create Audioserve Directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ ansible_nas_user }}"
+      with_items:
+        - "{{ audioserve_data_directory }}"
+        - "{{ audioserve_audiobooks_directory }}"
+
+    - name: Audioserve Docker Container
+      community.docker.docker_container:
+        name: "{{ audioserve_container_name }}"
+        image: izderadicka/audioserve
+        pull: true
+        command: '--tags /audiobooks'
+        volumes:
+          - "{{ audioserve_data_directory }}:/home/audioserve/.audioserve:rw"
+          - "{{ audioserve_audiobooks_directory }}:/audiobooks:rw"
+        ports:
+          - "{{ audioserve_port }}:3000"
+        env:
+          PUID: "1000"
+          PGID: "1000"
+          AUDIOSERVE_SHARED_SECRET: "{{ audioserve_shared_secret }}"
+        restart_policy: unless-stopped
+        memory: "{{ audioserve_memory }}"
+        labels:
+          traefik.enable: "{{ audioserve_available_externally | string }}"
+          traefik.http.routers.audioserve.rule: "Host(`{{ audioserve_hostname }}.{{ ansible_nas_domain }}`)"
+          traefik.http.routers.audioserve.tls.certresolver: "letsencrypt"
+          traefik.http.routers.audioserve.tls.domains[0].main: "{{ ansible_nas_domain }}"
+          traefik.http.routers.audioserve.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+          traefik.http.services.audioserve.loadbalancer.server.port: "{{ audioserve_port }}:3000"
+  when: audioserve_enabled is true
+
+- name: Stop Audioserve
+  block:
+    - name: Stop Audioserve
+      community.docker.docker_container:
+        name: "{{ audioserve_container_name }}"
+        state: absent
+  when: audioserve_enabled is false
